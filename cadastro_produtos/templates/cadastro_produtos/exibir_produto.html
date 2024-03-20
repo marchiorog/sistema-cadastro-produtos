@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/exibir_produto.css' %}" />
+    <title>Lista de Produtos</title>
+  </head>
+  <body>
+    <div class="template-fundo">
+      <h1>Lista de Produtos</h1>
+      <div class="lista">
+        <ul>
+          {% if produtos %} {% for produto in produtos %}
+          <li>
+            <h2>{{ produto.nome }}</h2>
+            <p>Código: {{ produto.codigo }}</p>
+            <p>Altura: {{ produto.altura }}</p>
+            <p>Largura: {{ produto.largura }}</p>
+            <p>Profundidade: {{ produto.profundidade }}</p>
+            <form method="post" action="{% url 'deletar_produto' produto.id %}">
+              {% csrf_token %}
+              <button type="submit">Deletar Produto</button>
+            </form>
+            <ul>
+              <h3>Comentários:</h3>
+              {% for comentario in produto.comentarios.all %}
+              <li>
+                {{ comentario.texto }}
+                <form
+                  method="post"
+                  action="{% url 'deletar_comentario' comentario.id %}"
+                >
+                  {% csrf_token %}
+                  <button type="submit">Deletar Comentário</button>
+                </form>
+              </li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% endfor %} {% else %}
+          <p>Produto Inexistente</p>
+          {% endif %}
+        </ul>
+      </div>
+
+      <div class="links">
+        <a href="{% url 'produto' %}">Cadastrar Produtos</a>
+        <a href="{% url 'comentario' produto_id=1 %}">Cadastrar Comentário</a>
+      </div>
+    </div>
+  </body>
+</html>
