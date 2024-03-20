@@ -25,6 +25,7 @@ body{
     width: 450px;
     align-items: center;
     color: #2b344b;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 #form h1{
@@ -42,11 +43,10 @@ input {
     flex-direction: column;
     min-width: 280px;
     border-radius: 22px;
-    border: 1px #6f7e8a solid;
+    border: 1px solid #ced4da;
     margin: 10px 0px 10px 0px;
-    padding: 5px;
+    padding: 5px 10px 5px 10px;
     font-size: 20px;
-    
 }
 
 .btn {
