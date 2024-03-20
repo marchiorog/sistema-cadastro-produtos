@@ -9,12 +9,13 @@
     <title>Adicionar Comentário</title>
   </head>
   <body>
-    <div class="form">
+    <div id="form">
       <h1>Adicionar Comentário</h1>
-
       <form method="post">
         {% csrf_token %} {{ form.as_p }}
-        <button type="submit">Adicionar Comentário</button>
+        <div class="btn">
+          <button type="submit">Adicionar Comentário</button>
+        </div>
       </form>
 
       <a href="{% url 'exibir_produto' %}">Exibir Produtos</a>
