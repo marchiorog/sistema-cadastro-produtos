@@ -3,8 +3,8 @@ Sistema de cadastro de produtos
 *Feito por Guilherme De Noni Marchioro*
 <br>
 <br>
-Front-end - HTML, CSS
-Back-end - Django (Python)
+Front-end - HTML, CSS <br>
+Back-end - Django (Python)<br>
 Banco de dados - SQLite
-
+<br>
 Obs: Para testar a aplicação basta executar o código *python manage.py runserver* no diretório raiz e depois copiar o link de acesso. 
